@@ -7,20 +7,24 @@ function contador() {
     if (txtinicio.value == '' || txtfim.value == '' || txtpasso.value == '') {
         res.innerHTML = 'Impossivel contar'
     } else {
-
         var inicio = Number(txtinicio.value)
         var fim = Number(txtfim.value)
+        var passo = Number(txtpasso.value)
 
-        if (txtpasso.value == 0) {
+        if (passo <= 0) {
             passo = Number(1)
             alert(`Passo invalido, considerando passo 1.`)
-        } else {
-            passo = Number(txtpasso.value)
         }
         
         res.innerHTML = `Contando: <br>`
-        for (inicio; inicio <= fim; inicio += passo) {
-            res.innerHTML += `${inicio} `
+        if (inicio < fim) {
+            for (let c = inicio; c <= fim; c += passo) {
+                res.innerHTML += `${c} `
+            }
+        } else {
+            for (let c = inicio; c >= fim; c -= passo) {
+                res.innerHTML += `${c} `
+            }
         }
     }
 }
