@@ -5,3 +5,5 @@ function parimpar(n) {
         return 'Impar!'
     }
 }
+ 
+console.log(parimpar(233))
